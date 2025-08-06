@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bridge & Luck 語錄</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.5s ease;
+    }
+    .quote {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .suggestion {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 2em;
+    }
+    .back-button a {
+      text-decoration: none;
+      font-size: 1em;
+      color: #0066cc;
+      border: 1px solid #ccc;
+      padding: 0.5em 1.2em;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #f0f0f0;
+    }
+    .signature {
+      font-size: 0.8em;
+      color: #888;
+      position: absolute;
+      bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote" id="quote"></div>
+  <div class="suggestion" id="suggestion"></div>
+  <div class="back-button"><a href="https://bridgeandluck.com">回到官網</a></div>
+  <div class="signature">語錄由 Bridge & Luck 召喚而出 💫</div>
+
+  <script>
+    const quotes = [
+      ["他也在想你", "或許可以先從簡單的對話開始。"],
+      ["你的猶豫，他懂", "不必急著解釋，你可以等等他。"],
+      ["別急，好事正在慢慢趕來", "先深呼吸，好運從容不迫地走向你。"],
+      ["你退了，他才靠近", "保持沉默，讓他意識到你的重量。"],
+      ["放下，不代表你輸了", "那是你選擇更愛自己的一刻。"],
+      ["答案會在你最平靜時出現", "可以先去散步或洗個澡。"],
+      ["你的願望，正在悄悄實現", "保持相信，好事總在轉角出現。"],
+      ["他不是不在乎，他只是怕靠近", "給彼此一些時間與空間。"],
+      ["你值得更偏心的對待", "別接受那些讓你懷疑自己的愛。"],
+      ["你在等的，其實也在找你", "就快遇見了，請不要退縮。"],
+      ["你一直都很好，只是你忘了", "花點時間重新愛上你自己。"],
+      ["不要急著做決定", "慢慢來才是最深的溫柔。"],
+      ["他會想起你", "你只需要安靜地做自己。"],
+      ["你不是太敏感，你只是很真誠", "這是你的珍貴，不是你的錯。"],
+      ["你不必改變，才能被愛", "真正對的人會喜歡現在的你。"],
+      ["他懂你不說的話", "那就是默契的開始。"],
+      ["有些人，懂你比愛你更重要", "找那個可以讓你安靜的人。"],
+      ["他還沒回應，不代表他不在意", "可能他也在猶豫怎麼靠近你。"],
+      ["你不用一直撐著", "可以軟弱，也可以不解釋。"],
+      ["你想說的話，他遲早會懂", "只要你夠真，他一定會聽見。"]
+    ];
+
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById("quote").textContent = quotes[randomIndex][0];
+    document.getElementById("suggestion").textContent = quotes[randomIndex][1];
+
+    const hour = new Date().getHours();
+    if (hour >= 6 && hour < 17) {
+      document.body.style.backgroundColor = "#d0f0fd";
+    } else if (hour >= 17 && hour < 20) {
+      document.body.style.backgroundColor = "#dbcafe";
+    } else {
+      document.body.style.backgroundColor = "#3b3b5c";
+      document.body.style.color = "#f5f5f5";
+    }
+  </script>
+</body>
+</html>
