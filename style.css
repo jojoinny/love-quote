@@ -1,6 +1,5 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #fff;
   margin: 0;
   padding: 0;
   display: flex;
@@ -9,38 +8,68 @@ body {
   height: 100vh;
   text-align: center;
   color: #000;
+  transition: background-color 1s ease-in-out;
+}
+
+/* 背景色會根據 script.js 設定的時間變化 */
+.morning {
+  background-color: #FFFAE3; /* 淡黃 */
+}
+.afternoon {
+  background-color: #E3F2FD; /* 淺藍 */
+}
+.evening {
+  background-color: #F3E5F5; /* 淡紫 */
+}
+.night {
+  background-color: #D7CCC8; /* 深灰棕 */
 }
 
 .container {
   max-width: 90%;
+  padding-top: 5vh;
 }
 
 #quote {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 30px; /* 主語錄放大 */
+  margin-bottom: 12px;
   font-weight: bold;
 }
 
 #jojoAdvice {
-  font-size: 16px;
+  font-size: 20px; /* 第二行建議字也放大 */
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 button {
-  background-color: #000;
+  background-color: #000; /* 黑底白字 */
   color: #fff;
   border: none;
   padding: 12px 24px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #333;
 }
 
 .home-link {
   display: block;
-  margin-top: 20px;
-  color: #3333cc;
+  margin-top: 30px;
+  color: #000;
   font-size: 14px;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.footer {
+  font-size: 13px;
+  color: #000; /* 改為黑色字體 */
+  margin-top: 40px;
+  letter-spacing: 0.5px;
 }
