@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bridge & Luck 心之橋語錄</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      transition: background-color 1s;
+    }
+    #quote {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 20px;
+      padding: 0 10px;
+    }
+    #subquote {
+      font-size: 1em;
+      color: #555;
+      margin: 10px 20px 30px;
+      padding: 0 10px;
+    }
+    #back-btn {
+      font-size: 1em;
+      padding: 10px 20px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #signature {
+      font-size: 0.9em;
+      color: #333;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="quote">語錄載入中...</div>
+  <div id="subquote"></div>
+  <a id="back-btn" href="https://bridgeandluck.com">回到官網</a>
+  <div id="signature">語錄由 Bridge & Luck 召喚而出 💫</div>
+
+  <script>
+    const quotes = [
+      ["你其實早已知道答案，只是害怕它太真實。", "真實從不會因逃避而消失。"],
+      ["不要急著做決定，讓心先沉澱。", "沉澱的水，才看得見底。"],
+      ["那個你想著的人，也在想著你嗎？", "試著先好好想想自己。"],
+      ["不是所有等待都有回音，但每一份等待都值得尊敬。", "你已經很勇敢。"],
+      ["世界很吵，但你不必跟著吵。", "安靜是你的力量。"],
+      ["有些答案不是用想的，是用走出來的。", "往前走，答案會出現。"]
+    ];
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById("quote").textContent = quotes[randomIndex][0];
+    document.getElementById("subquote").textContent = quotes[randomIndex][1];
+
+    const hour = new Date().getHours();
+    if (hour >= 6 && hour < 17) {
+      document.body.style.backgroundColor = "#d0f0fd"; // 白天：療癒藍
+    } else if (hour >= 17 && hour < 20) {
+      document.body.style.backgroundColor = "#dbcafe"; // 黃昏：奶茶色
+    } else {
+      document.body.style.backgroundColor = "#3b3b5c"; // 深夜：星夜系
+      document.body.style.color = "#fff";
+    }
+  </script>
+</body>
+</html>
