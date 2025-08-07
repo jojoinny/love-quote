@@ -37,30 +37,33 @@ body {
 }
 
 #jojoAdvice {
-  font-size: 20px; /* 第二行建議字也放大 */
-  color: #666;
-  margin-bottom: 30px;
+  font-size: 22px; /* 第二行放大 */
+  color: #444;      /* 更清楚的對比色 */
+  line-height: 1.6;
+  margin-bottom: 36px; /* 多一點間距 */
 }
 
 button {
-  background-color: #000; /* 黑底白字 */
+  background-color: #000;
   color: #fff;
-  border: none;
+  border: 2px solid #000; /* 增加白框效果 */
   padding: 12px 24px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 6px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
   background-color: #333;
+  border-color: #333;
 }
 
 .home-link {
   display: block;
   margin-top: 30px;
+  margin-bottom: 40px; /* 增加與 footer 間距 */
   color: #000;
   font-size: 14px;
   text-decoration: none;
@@ -69,7 +72,6 @@ button:hover {
 
 .footer {
   font-size: 13px;
-  color: #000; /* 改為黑色字體 */
-  margin-top: 40px;
+  color: #000;
   letter-spacing: 0.5px;
 }
