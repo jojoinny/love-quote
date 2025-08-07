@@ -37,7 +37,7 @@ body {
 }
 
 #jojoAdvice {
-  font-size: 17px; /* 第二行放大 */
+  font-size: 13px; /* 第二行放大 */
   color: #444;      /* 更清楚的對比色 */
   line-height: 1.6;
   margin-bottom: 36px; /* 多一點間距 */
@@ -62,8 +62,8 @@ button:hover {
 
 .home-link {
   display: block;
-  margin-top: 70px;
-  margin-bottom: 40px; /* 增加與 footer 間距 */
+  margin-top: 30px;
+  margin-bottom: 70px; /* 增加與 footer 間距 */
   color: #000;
   font-size: 14px;
   text-decoration: none;
