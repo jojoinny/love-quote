@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>時間測試</title>
+</head>
+<body style="font-family:sans-serif; text-align:center; padding-top:30vh;">
+  <h2>📍 你裝置目前的時間是：</h2>
+  <p id="time" style="font-size: 24px; color: #333;"></p>
+
+  <script>
+    const now = new Date();
+    document.getElementById("time").textContent = now.toString();
+  </script>
+</body>
+</html>
