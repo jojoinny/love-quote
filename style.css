@@ -28,12 +28,16 @@ body {
 .container {
   max-width: 90%;
   padding-top: 5vh;
+  overflow-x: hidden; /* 避免整個畫面被滑動影響 */
 }
 
 #quote {
   font-size: 30px; /* 主語錄放大 */
   margin-bottom: 10px;
   font-weight: bold;
+  white-space: nowrap;       /* 不換行 */
+  overflow-x: auto;          /* 超出寬度時可左右滑動 */
+  -webkit-overflow-scrolling: touch;  /* 提升手機滑動體驗 */
 }
 
 #jojoAdvice {
