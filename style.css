@@ -32,7 +32,7 @@ body {
 
 #quote {
   font-size: 30px; /* 主語錄放大 */
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
@@ -63,7 +63,7 @@ button:hover {
 .home-link {
   display: block;
   margin-top: 30px;
-  margin-bottom: 70px; /* 增加與 footer 間距 */
+  margin-bottom: 40px; /* 增加與 footer 間距 */
   color: #000;
   font-size: 14px;
   text-decoration: none;
@@ -72,6 +72,7 @@ button:hover {
 
 .footer {
   font-size: 13px;
+  margin-top: 30px;
   color: #000;
   letter-spacing: 0.5px;
 }
