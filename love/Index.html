@@ -1,1 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bridge & Luck 語錄</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      transition: background-color 0.5s ease;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
+    /* 🔮 Loading Screen Style */
+    #loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 1s ease-out forwards;
+      animation-delay: 2.5s;
+    }
+
+    .loading-title {
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
+
+    .loading-subtext {
+      font-size: 1.6em;
+      animation: glow 1.8s infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 8px white; }
+      50% { text-shadow: 0 0 16px #fff; }
+    }
+
+    @keyframes star-twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    #quote-page {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height:80vh;
+      width: 100%;
+      padding: 5vh;
+    }
+
+    .quote {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+
+    .suggestion {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 2em;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      font-size: 1em;
+      background-color: black;
+      color: white;
+      border: 1px solid #000;
+      padding: 0.5em 0.8em;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #333;
+    }
+
+    .signature {
+      font-size: 0.8em;
+      color: #555;
+      position: absolute;
+      bottom: 6em;
+    }
+
+    .stars::before {
+      content: "✨✨✨";
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.4em;
+      animation: star-twinkle 2s infinite;
+      color: #fff8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔮 Loading Animation Page -->
+  <div id="loading-screen" class="stars">
+    <div class="loading-title">Bridge & Luck</div>
+    <div class="loading-subtext">答案召喚中…</div>
+  </div>
+
+  <!-- ✨ Final Quote Page -->
+  <div id="quote-page">
+    <div class="quote" id="quote"></div>
+    <div class="suggestion" id="suggestion"></div>
+    <div class="back-button"><a href="https://bridgeandluck.com">回到官網</a></div>
+    <div class="signature">語錄由 Bridge & Luck 召喚而出 💫</div>
+  </div>
+
+  <script>
+    const hour = new Date().getHours();
+    const loader = document.getElementById("loading-screen");
+
+    // 🔁 時間段切換 Loading 背景
+    if (hour >= 0 && hour < 6) {
+      loader.style.background = "#f3e5ab"; // 🧋 凌晨奶茶
+      loader.style.color = "#222";
+    } else if (hour >= 6 && hour < 12) {
+      loader.style.background = "#fff3f0"; // ☀️ 晨曦淡粉
+      loader.style.color = "#222";
+    } else if (hour >= 12 && hour < 17) {
+      loader.style.background = "#d0f0fd"; // 🌤️ 午光藍
+      loader.style.color = "#333";
+    } else if (hour >= 17 && hour < 20) {
+      loader.style.background = "#dbcafe"; // 🌅 傍晚淡紫
+      loader.style.color = "#333";
+    } else {
+      loader.style.background = "#2c3e50"; // 🌙 午夜藍
+      loader.classList.add("stars");
+      loader.style.color = "#fff";
+    }
+
+    // ✨ 顯示語錄頁並根據時間變換背景
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.getElementById("quote-page").style.display = "flex";
+
+      if (hour >= 0 && hour < 6) {
+        document.body.style.backgroundColor = "#f3e5ab";
+      } else if (hour >= 6 && hour < 12) {
+        document.body.style.backgroundColor = "#fff3f0";
+      } else if (hour >= 12 && hour < 17) {
+        document.body.style.backgroundColor = "#d0f0fd";
+      } else if (hour >= 17 && hour < 20) {
+        document.body.style.backgroundColor = "#dbcafe";
+      } else {
+        document.body.style.backgroundColor = "#3b3b5c";
+        document.body.style.color = "#f5f5f5";
+        document.querySelector(".suggestion").style.color = "#ccc";
+      }
+    }, 2500);
+
+    const rawQuotes = [
+      // 你原本的語錄陣列完整貼上就可以
+      "他也在想你\n只是他不會說", "他還在乎\n只是他藏得更深",
+      "他不會主動\n但他其實也想你了", "他在等你開口\n他沒忘記你",
+      "這段關係還沒結束\n只是你們都不確定了", "他有點退縮了\n但你還在他心裡",
+      "你比他更清楚\n他還在，但遠了", "再靠近，他會逃\n但不代表他不想見你",
+      "他其實也不確定\n只是怕你已經放棄", "你沒說出口的，他懂\n他希望你先靠近",
+      "別把話說滿\n留一點空間給未來", "這不是結束\n只是需要一段沉澱",
+      "他已讀，是在想怎麼回\n不是不想回", "還沒有人取代你\n只是他假裝可以",
+      "你還記得那一天\n他其實也沒忘", "你退了，他才靠近\n可惜沒人停下來",
+      "等一下，再問一次\n或許就能重來", "他想你說得更明白\n他不擅長猜",
+      "他在等一個理由\n不是不想，只是害怕", "他的沉默，是一種期待\n也是一種壓抑",
+      "他不知道怎麼開口\n你卻已經懂了", "你已經走進他心裡了\n只是他沒說出口",
+      "他沒再忘記你\n只是很少提起你", "他其實想聯絡你\n但不知道該說什麼",
+      "他只是還沒準備好\n不是不想開始", "他怕給不起承諾\n卻又不願放你走",
+      "你比他更有勇氣\n也更願意相信愛", "他在夢裡叫過你名字\n醒來卻不敢打給你",
+      "你們的故事還沒說完\n只是翻到了一頁空白", "你出現過他的未來裡\n只是劇情被改寫",
+      "他只是怕重新覆轍\n不是不想愛了", "他試著放下，但做不到\n你是他心底的例外",
+      "他還在回想你說的話\n反覆溫習你的語氣", "你是一個例外\n是他曾經遺憾沒說出口的名字",
+      "你再靠近一點，他會動搖\n因為你一直都特別", "他想你比你想他還多\n只是你不知道",
+      "他一直記得你說過的話\n只是選擇沉默", "你讓他練習愛與失去\n也學會了等待",
+      "他怕你再出現時\n他還是愛你", "他從沒放下過你\n只是藏得太深",
+      "你是他想過以後的人\n卻沒能走到最後", "他怕你看穿他的心事\n所以裝作冷靜",
+      "他問過別人你的近況\n卻沒勇氣聯絡你", "你還留在他的夢裡\n不曾離開",
+      "他以為你會等他\n你以為他會追你", "你們只是錯過了時機\n不是不適合",
+      "他一直沒有忘記你\n只是學會了不打擾", "他還記得你的喜好\n只是沒有機會表現",
+      "你還佔據他記憶的大半\n只是他裝作釋懷", "他還會想起你\n只是閉口不提",
+      "你說過的話\n他一直記在心裡", "你教會他如何愛人\n卻沒教他如何放下",
+      "他從來沒有不在乎你\n只是沒有表達", "他曾經為你失眠\n現在只是習慣了安靜",
+      "你出現後，他再也無法全心去愛別人", "有些人，懂你比愛你更重要\n找那個可以讓你安靜的人。",
+      "你比你想像的還值得被愛\n而且是很深很深的那種", "你不需要再試著讓誰懂你\n有些人，一眼就能看懂你的靈魂",
+      "愛你的人，不會讓你一直等\n是會奔向你的人", "他還是想你\n只是你看不見",
+      "他最放不下的從來都是你\n只是你沒問", "他沒有說，但他等你\n那是他的驕傲",
+      "他沒走遠\n他只是站在你背後，等你回頭"
+    ];
+
+    const parsedQuotes = rawQuotes.map(q => {
+      const [main, sub] = q.split('\n');
+      return { main, sub };
+    });
+
+    const randomIndex = Math.floor(Math.random() * parsedQuotes.length);
+    document.getElementById("quote").textContent = parsedQuotes[randomIndex].main;
+    document.getElementById("suggestion").textContent = parsedQuotes[randomIndex].sub;
+  </script>
+</body>
+</html>
